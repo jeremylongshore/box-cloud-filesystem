@@ -1,0 +1,19 @@
+# Box workspace state files
+.box-manifest.json
+.box-sync.log
+.box-cloud-filesystem.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Temp
+*.tmp
+/tmp/
