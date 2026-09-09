@@ -1,6 +1,7 @@
 # Box workspace state files
 .box-manifest.json
 .box-sync.log
+.box-sync-pending
 .box-cloud-filesystem.json
 
 # OS

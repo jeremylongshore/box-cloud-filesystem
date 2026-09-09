@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+printf '%s\n' "$*" >> "${BOX_MOCK_LOG:?}"
+
+case "${1:-}" in
+  users:get)
+    printf '{"id":"42","name":"Test Operator"}\n'
+    ;;
+  folders:download)
+    ;;
+  folders:items)
+    printf '{"entries":[{"name":"report.md","id":"99","type":"file","content_modified_at":"2026-09-09T00:00:00Z"}]}\n'
+    ;;
+  *)
+    echo "Unexpected Box mock command: $*" >&2
+    exit 2
+    ;;
+esac

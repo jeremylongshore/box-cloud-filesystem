@@ -4,7 +4,8 @@
 
 | Version | Supported |
 |---------|-----------|
-| 1.0.x   | Yes       |
+| 2.0.x   | Yes       |
+| 1.0.x   | No        |
 
 ## Reporting a Vulnerability
 
@@ -25,11 +26,14 @@ You will receive a response within 48 hours. We will work with you to understand
 
 This plugin is designed with a safety-first approach:
 
-- **No credentials stored** — all authentication is delegated to Box CLI (`@box/cli`)
-- **Path containment** — the sync hook only fires for files inside the configured workspace directory
+- **No Box credentials stored** — authentication is delegated to Box CLI (`@box/cli`)
+- **No hook uploads** — Write/Edit hooks only queue local relative paths for review
+- **Path containment** — queue hooks reject paths outside the canonical workspace and reject symlinks
+- **Sensitive-path exclusions** — hidden and credential-like filenames are not queued
+- **Restricted config** — local non-secret workspace configuration is written with mode 0600
 - **Strict bash mode** — all scripts use `set -euo pipefail`
 - **Defensive parsing** — `jq` commands use `// empty` fallback to handle malformed input
-- **Narrow sharing defaults** — sharing defaults to `collaborators` access, never `open`/public
+- **Narrow sharing examples** — examples use `collaborators`; audience changes require confirmation
 - **Trust zones** — operations classified by risk level (Read/Create/Update/Expose/Destructive)
 
 ## Scope
