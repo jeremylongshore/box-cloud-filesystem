@@ -2,7 +2,9 @@
 
 ## What This Is
 
-Claude Code plugin — transparent cloud filesystem for AI agents using Box CLI (`@box/cli`). Two modes: transparent sync hooks (auto-upload on Write/Edit) and explicit Box CLI operations with safety guardrails.
+Claude Code plugin for reviewed Box CLI (`@box/cli`) operations. Write/Edit
+hooks queue eligible local changes for review and never upload automatically;
+remote mutations use explicit Box CLI commands with safety guardrails.
 
 ## Structure
 
@@ -17,9 +19,9 @@ Claude Code plugin — transparent cloud filesystem for AI agents using Box CLI 
 shellcheck scripts/*.sh
 ```
 
-Enterprise grading (requires marketplace repo):
+Marketplace grading (requires the marketplace repository):
 ```bash
-python3 scripts/validate-skills-schema.py --enterprise --verbose
+python3 scripts/validate-skills-schema.py --marketplace --verbose
 ```
 
 ## Conventions

@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.0.0] - 2026-09-09
+
+### Changed
+
+- Replace automatic PostToolUse uploads with a queue-only hook and explicit,
+  reviewed Box sync workflow.
+- Align commands and authentication checks with Box CLI 4.x (`box users:get me`).
+- Declare Node.js 18+, Bash, and jq compatibility boundaries.
+
+### Security
+
+- Prevent ordinary Write/Edit operations from silently creating external Box
+  versions or files.
+- Canonicalize the workspace boundary, exclude hidden and credential-like paths,
+  and store local configuration with mode 0600.
+- Require explicit approval for public links, destructive actions, remote
+  conflicts, and bulk changes.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),

@@ -27,11 +27,12 @@ Before submitting, verify your changes pass:
 # Lint shell scripts
 shellcheck scripts/*.sh
 
-# Validate plugin structure (if you have ccpi installed)
-ccpi validate --strict
+# Validate plugin and marketplace manifests (if Claude Code is installed)
+claude plugin validate .claude-plugin/plugin.json
+claude plugin validate .claude-plugin/marketplace.json
 
 # Validate SKILL.md (if you have the marketplace repo)
-python3 scripts/validate-skills-schema.py --enterprise --verbose
+python3 scripts/validate-skills-schema.py --marketplace --verbose
 ```
 
 ## Commit Messages
@@ -40,7 +41,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
 feat: add bidirectional sync support
-fix: handle basename collision in manifest lookup
+fix: preserve relative paths in the review queue
 docs: clarify sharing access levels
 chore: update gist with latest one-pager
 ```
